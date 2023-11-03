@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Szerencsekerek</title>
+    <style>
+        .wheel {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid black;
+            position: relative;
+            animation-name: spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        .slice {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .slice:nth-child(1) {
+            border-bottom: 100px solid red;
+            transform-origin: bottom;
+            animation-name: spin-slice-1;
+        }
+
+        .slice:nth-child(2) {
+            border-bottom: 100px solid blue;
+            transform-origin: bottom;
+            animation-name: spin-slice-2;
+        }
+
+        .slice:nth-child(3) {
+            border-bottom: 100px solid green;
+            transform-origin: bottom;
+            animation-name: spin-slice-3;
+        }
+
+        .slice:nth-child(4) {
+            border-bottom: 100px solid yellow;
+            transform-origin: bottom;
+            animation-name: spin-slice-4;
+        }
+
+        .slice:nth-child(5) {
+            border-bottom: 100px solid orange;
+            transform-origin: bottom;
+            animation-name: spin-slice-5;
+        }
+
+        .slice:nth-child(6) {
+            border-bottom: 100px solid purple;
+            transform-origin: bottom;
+            animation-name: spin-slice-6;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin-slice-1 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(60deg);
+            }
+        }
+
+        @keyframes spin-slice-2 {
+            0% {
+                transform: rotate(60deg);
+            }
+            100% {
+                transform: rotate(120deg);
+            }
+        }
+
+        @keyframes spin-slice-3 {
+            0% {
+                transform: rotate(120deg);
+            }
+            100% {
+                transform: rotate(180deg);
+            }
+        }
+
+        @keyframes spin-slice-4 {
+            0% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(240deg);
+            }
+        }
+
+        @keyframes spin-slice-5 {
+            0% {
+                transform: rotate(240deg);
+            }
+            100% {
+                transform: rotate(300deg);
+            }
+        }
+
+        @keyframes spin-slice-6 {
+            0% {
+                transform: rotate(300deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wheel"></div>
+    <button onclick="startSpin()">Indítás</button>
+    <button onclick="stopSpin()">Leállítás</button>
+
+    <script>
+        var wheel = document.querySelector('.wheel');
+        var spinning = false;
+
+        function startSpin() {
+            if (!spinning) {
+                wheel.style.animationPlayState = 'running';
+                spinning = true;
+            }
+        }
+
+        function stopSpin() {
+            if (spinning) {
+                wheel.style.animationPlayState = 'paused';
+                spinning = false;
+            }
+        }
+    </script>
+</body>
+</html>
